@@ -1,8 +1,4 @@
-# import pathlib
 import csv
-#from pathlib import Path
-#path = Path("Dev", "electronics-shop-project", "src", "items.csv")
-
 
 class Item:
     """
@@ -23,14 +19,18 @@ class Item:
         self.price = price
         self.quantity = quantity
         self.all.append(self)
-
+    def __str__(self):
+        return f'{self.name}, {self.price}, {self.quantity}'
     @property
     def name(self):
         return self.__name
 
     @name.setter
-    def name(self):
-        assert len(self.__name) >= 11, 'Длина наименования товара превышает 10 символов.'
+    def name(self, new_name):
+        if len(new_name)>=10:
+            raise ValueError('Длина наименования товара превышает 10 символов.')
+        self.__name = new_name
+
 
     def calculate_total_price(self) -> float:
         """
@@ -50,10 +50,9 @@ class Item:
         with open('C:\Dev\electronics-shop-project\src\items.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                item = (row['name'], row['price'], row['quantity'])
-                return (cls(item))
-
+                item = cls(row['name'], row['price'], row['quantity'])
+                print (item)
+                return item
     @staticmethod
     def string_to_number(num):
-        num_int = int(num)
-        return num_int
+        print (int(num))
