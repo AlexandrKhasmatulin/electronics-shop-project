@@ -11,5 +11,6 @@ class testItem(unittest.TestCase):
         item1 = Item('Смартфон', 10000, 20)
         Item.pay_rate = 0.8
         self.assertEqual(item1.apply_discount(), 8000)
+
 if __name__ == '__main__':
     unittest.main()
