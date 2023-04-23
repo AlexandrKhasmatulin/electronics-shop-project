@@ -23,6 +23,10 @@ class Item:
         return self.name
     def __repr__(self):
         return f'Item(\'{self.name}\', {self.price}, {self.quantity})'
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return int(self.quantity) + int(other.quantity)
     # @property
     # def name(self):
     #     return self.__name
