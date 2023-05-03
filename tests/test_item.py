@@ -26,6 +26,10 @@ class testItem(unittest.TestCase):
     def test__add__(self):
         self.assertEqual((int(self.item1.quantity) + int(self.phone1.quantity)), 25)
 
+    def test_instantiate_from_csv(cls):
+        item1 = Item()
+        cls.assertEqual(item1.instantiate_from_csv, '_Отсутствует файл item.csv_')
+
 
 
 
