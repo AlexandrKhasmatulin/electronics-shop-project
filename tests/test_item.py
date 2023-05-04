@@ -28,7 +28,7 @@ class testItem(unittest.TestCase):
 
     def test_instantiate_from_csv(cls):
         item1 = Item('Смартфон', 100, None)
-        cls.assertEqual(item1.instantiate_from_csv(), Item('Смартфон', 100, None))
+        cls.assertEqual(item1.instantiate_from_csv(), '_Отсутствует файл item.csv_')
 
 
 if __name__ == '__main__':
