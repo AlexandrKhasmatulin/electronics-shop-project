@@ -24,7 +24,7 @@ class Item:
         :param quantity: Количество товара в магазине.
         """
         if not name or not price or not quantity:
-            raise InstantiateCSVError
+            print('_Файл item.csv поврежден_')
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -71,7 +71,7 @@ class Item:
                     item = cls(row['name'], row['price'], row['quantity'])
                     return item
         except FileNotFoundError:
-            print('_Отсутствует файл item.csv_')
+            return '_Отсутствует файл item.csv_'
     # @staticmethod
     # def string_to_number(num):
     #     print (int(num))

@@ -27,10 +27,8 @@ class testItem(unittest.TestCase):
         self.assertEqual((int(self.item1.quantity) + int(self.phone1.quantity)), 25)
 
     def test_instantiate_from_csv(cls):
-        item1 = Item()
-        cls.assertEqual(item1.instantiate_from_csv, '_Отсутствует файл item.csv_')
-
-
+        item1 = Item('Смартфон', 100, None)
+        cls.assertEqual(item1.instantiate_from_csv(), Item('Смартфон', 100, None))
 
 
 if __name__ == '__main__':
